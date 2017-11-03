@@ -1,4 +1,4 @@
-<?php /* page.php is the page index */ ?>
+<?php /* This page is a copy of page.php, but this is an individual post page. */ ?>
 
 <?php get_header(); ?>
 
@@ -9,9 +9,9 @@
 				if ( have_posts() ) : while ( have_posts() ) : the_post();
 
   					/**
-  					 * Load content.php
+  					 * Load content-single.php
   					 */
-					get_template_part( 'content', get_post_format() );
+					get_template_part( 'content-single', get_post_format() );
   
 				endwhile; 
 				endif; 
