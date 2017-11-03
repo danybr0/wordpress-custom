@@ -28,4 +28,4 @@
       <li><a href="#">Facebook</a></li>
     </ol>
   </div>
-        </div><!-- /.blog-sidebar -->
+</div><!-- /.blog-sidebar -->

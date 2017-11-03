@@ -57,7 +57,7 @@
   <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
 </div><!-- /.blog-post -->
 
-
+<!--
 <nav>
   <ul class="pager">
     <li><a href="#">Previous</a></li>
@@ -65,3 +65,4 @@
   </ul>
 </nav>
 
+-->
