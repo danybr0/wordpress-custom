@@ -10,6 +10,14 @@
             the_post(); 
             get_template_part('content', get_post_format()); 
           endwhile;
+          ?>
+          <nav>
+            <ul class="pager">
+              <li><?php next_posts_link( 'Anterior' ); ?></li>
+              <li><?php previous_posts_link( 'Próximo' ); ?></li>
+            </ul>
+          </nav>
+          <?php
         endif;
           
     ?>
