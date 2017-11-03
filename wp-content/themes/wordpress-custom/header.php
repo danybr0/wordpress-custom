@@ -45,12 +45,14 @@
         <h1 class="blog-title">
           <a href="
           <?php 
-          /*
-            The title always take bake to the main blog page.
-           */
-          echo get_bloginfo('wpurl'); 
+            /*
+              The title always take bake to the main blog page.
+            */
+            echo get_bloginfo('wpurl'); 
           ?>">
-          <?php echo get_bloginfo('name'); ?>
+          <?php 
+            echo get_bloginfo('name'); 
+          ?>
           </a>
         </h1> 
         <p class="lead blog-description"><?php echo get_bloginfo('description'); ?></p>
