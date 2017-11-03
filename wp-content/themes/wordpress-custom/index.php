@@ -1,4 +1,4 @@
-
+<?php /* index.php is the blog index */ ?>
 <?php get_header(); ?>
 <div class="row">
 
