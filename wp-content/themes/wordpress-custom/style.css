@@ -182,3 +182,20 @@ h6, .h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/*
+ * Comments
+ */
+
+.comments-title{
+  background-color: #428bca;
+  color: #fff;
+}
+
+.comment-list, .children{
+  list-style: none;
+}
+
+.comment-author{
+  font-weight: 700;
+}
