@@ -12,11 +12,24 @@
 	</p>
 
 
+	
+
+ 	<?php if ( has_post_thumbnail() ) { //split the page if a thumbnail is present ?>
+	<div class="row">
+		<div class="col-md-4">
+			<?php the_post_thumbnail('thumbnail'); ?>
+		</div>
+		<div class="col-md-6">
+			<?php the_excerpt(); ?>
+		</div>
+	</div>
+	<?php } else { ?>
 	<?php 
-	 	/**
+		/**
 	 	 * Excerpt only shows the first 55 characters.
 	 	 */
- 		the_excerpt(); 
- 	?>
+	 	the_excerpt(); 
+	 ?>
+	<?php } ?>
 
 </div><!-- /.blog-post -->

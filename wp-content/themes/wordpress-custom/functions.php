@@ -1,7 +1,7 @@
 <?php
 //Enqueue styles
 function wordpress_custom_styles() {
-	wp_enqueue_style( 'style', get_template_directory_uri() . '/css/style.css' );
+	wp_enqueue_style( 'style', get_template_directory_uri() . '/style.css' );
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' , array('jquery'), '3.3.7', true);
 }
@@ -58,5 +58,8 @@ function custom_settings_page_setup() {
 }
 
 add_action( 'admin_init', 'custom_settings_page_setup' );
+
+// Support Featured Images
+add_theme_support( 'post-thumbnails' );
 
 ?>

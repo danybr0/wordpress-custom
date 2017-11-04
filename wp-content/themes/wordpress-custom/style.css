@@ -199,3 +199,15 @@ h6, .h6 {
 .comment-author{
   font-weight: 700;
 }
+
+/**
+ * Post image
+ */
+
+.wp-post-image{
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
