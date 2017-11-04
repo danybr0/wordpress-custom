@@ -14,4 +14,7 @@ function startwordpress_google_fonts() {
 		}
 
 add_action('wp_print_styles', 'startwordpress_google_fonts');
+
+//Wordpress titles
+add_theme_support( 'title-tag');
 ?>
