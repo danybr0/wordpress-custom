@@ -23,6 +23,7 @@
           <a class="blog-nav-item active" href="/">Home</a>
           <?php 
             /**
+             * ------------------ Menu -------------------
              * '&title_li=' tells the code to not add a 'Pages' title before the list.
              * @type {String}
              */

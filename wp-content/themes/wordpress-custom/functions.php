@@ -5,15 +5,16 @@ function wordpress_custom_styles() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css', array(), '3.3.7' );
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js' , array('jquery'), '3.3.7', true);
 }
+
 add_action( 'wp_enqueue_scripts', 'wordpress_custom_styles' );
 
 // Add Google Fonts
-function startwordpress_google_fonts() {
+function wordpress_custom_google_fonts() {
 	wp_register_style('OpenSans', 'http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800');
 	wp_enqueue_style( 'OpenSans');
 }
 
-add_action('wp_print_styles', 'startwordpress_google_fonts');
+add_action('wp_print_styles', 'wordpress_custom_google_fonts');
 
 //Wordpress titles
 add_theme_support( 'title-tag');
@@ -61,5 +62,29 @@ add_action( 'admin_init', 'custom_settings_page_setup' );
 
 // Support Featured Images
 add_theme_support( 'post-thumbnails' );
+
+// Custom Post Type
+/**
+ * If the original URL was example.com, then, the custom post type would appear 
+ * at example.com/my-custom-post
+ */
+function create_my_custom_post() {
+	register_post_type( 'my-custom-post',
+		array(
+			'labels' => array(
+				'name' => __( 'My Custom Post' ),
+				'singular_name' => __( 'My Custom Post' ),
+			),
+			'public' => true,
+			'has_archive' => true,
+			'supports' => array(
+				'title', //Is the field called with <?php the_title( );
+				'editor', //is the content editing area that are called with <?php the_content( );
+				'thumbnail', //Feature image <?php the_post_thumbnail( )
+				'custom-fields' 
+			)
+		));
+}
+add_action( 'init', 'create_my_custom_post' );
 
 ?>
