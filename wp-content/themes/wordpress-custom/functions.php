@@ -17,6 +17,7 @@ function wordpress_custom_google_fonts() {
 add_action('wp_print_styles', 'wordpress_custom_google_fonts');
 
 //Wordpress titles
+//Show the title of the article first, and also include a reference to the main site title.
 add_theme_support( 'title-tag');
 
 // Custom settings
@@ -25,7 +26,7 @@ function custom_settings_add_menu() {
 }
 add_action( 'admin_menu', 'custom_settings_add_menu' );
 
-// Create Custom Global Settings
+// Create Custom Global Settings basic page
 function custom_settings_page() { ?>
 <div class="wrap">
 	<h1>Custom Settings</h1>
@@ -39,16 +40,18 @@ function custom_settings_page() { ?>
 </div>
 <?php }
 
-// Twitter
+// Input field for Twitter
 function setting_twitter() { ?>
 <input type="text" name="twitter" id="twitter" value="<?php echo get_option( 'twitter' ); ?>" />
 <?php }
 
+//Input field for GitHub
 function setting_github() { ?>
 <input type="text" name="github" id="github" value="<?php echo get_option('github'); ?>" />
 <?php }
 
 //Show, accept and save the options fields
+//These options are showed in sidebar.php
 function custom_settings_page_setup() {
 	add_settings_section( 'section', 'All Settings', null, 'theme-options' );
 	add_settings_field( 'twitter', 'Twitter URL', 'setting_twitter', 'theme-options', 'section' );

@@ -1,3 +1,4 @@
+<?php //index.php is pulling in this file ?>
 <div class="blog-post">
 	<h2 class="blog-post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 	<p class="blog-post-meta"><?php the_date(); ?> by <a href="#"><?php the_author(); ?></a>
@@ -11,10 +12,10 @@
 		</a>
 	</p>
 
-
-	
-
- 	<?php if ( has_post_thumbnail() ) { //split the page if a thumbnail is present ?>
+	<?php 
+		//split the page if a thumbnail is present 
+		if ( has_post_thumbnail() ) { 
+	?>
 	<div class="row">
 		<div class="col-md-4">
 			<?php the_post_thumbnail('thumbnail'); ?>
