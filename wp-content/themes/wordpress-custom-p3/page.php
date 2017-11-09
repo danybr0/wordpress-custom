@@ -4,6 +4,7 @@
 	/**
 	 * The contents of a custom post can be put on anywhere.
 	 * It was put here for testing purposes.
+	 * Any page will display the custom loop.
 	 */
 	$args = array(
 		'post_type' => 'your_post',
