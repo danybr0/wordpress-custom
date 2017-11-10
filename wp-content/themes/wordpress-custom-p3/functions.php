@@ -58,7 +58,7 @@ add_action( 'add_meta_boxes', 'add_your_fields_meta_box' );
 
 function show_your_fields_meta_box() {
 	global $post;  
-		$meta = get_post_meta( $post->ID, 'your_fields', true ); ?>
+	$meta = get_post_meta( $post->ID, 'your_fields', true ); ?>
 
 	<input type="hidden" name="your_meta_box_nonce" value="<?php echo wp_create_nonce( basename(__FILE__) ); ?>">
 
@@ -66,10 +66,10 @@ function show_your_fields_meta_box() {
 
 
 <?php }
-
+//Save your field to database.
 function save_your_fields_meta( $post_id ) {   
 	// verify nonce that are wordpress security tokens (number used once)
-	if ( !wp_verify_nonce( $_POST['your_fields'], basename(__FILE__) ) ) {
+	if ( !wp_verify_nonce( $_POST['your_meta_box_nonce'], basename(__FILE__) ) ) {
 		return $post_id; 
 	}
 	// check autosave
