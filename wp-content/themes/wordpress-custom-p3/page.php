@@ -1,22 +1,63 @@
-<?php /* page.php is the page index */ ?>
+<?php get_header(); ?>
 
 <?php 
-	/**
-	 * The contents of a custom post can be put on anywhere.
-	 * It was put here for testing purposes.
-	 * Any page will display the custom loop.
-	 */
-	$args = array(
-		'post_type' => 'your_post',
-	);  
-	$your_loop = new WP_Query( $args ); 
+$args = array(
+	'post_type' => 'your_post',
+);  
+$your_loop = new WP_Query( $args ); if ( $your_loop->have_posts() ) : while ( $your_loop->have_posts() ) : $your_loop->the_post();
+$meta = get_post_meta( $post->ID, 'your_fields', true ); ?>
 
-	if ( $your_loop->have_posts() ) : while ( $your_loop->have_posts() ) : $your_loop->the_post(); 
-		$meta = get_post_meta( $post->ID, 'your_fields', true ); ?>
+<h1>Title</h1>
+<?php the_title(); ?>
 
-		<!-- contents of Your Post -->
+<h1>Content</h1>
+<?php the_content(); ?>
 
-	<?php endwhile; endif; wp_reset_postdata(); ?>
+<h1>Excerpt</h1>
+<?php the_excerpt(); ?>
+
+<h1>Text Input</h1>
+<?php if (is_array($meta) && isset($meta['text'])){ echo $meta['text'];} ?>
+
+<h1>Textarea</h1>
+<?php if (is_array($meta) && isset($meta['textarea'])){ echo $meta['textarea']; }?>
 
 
+<h1>Checkbox</h1>
+<?php 
+if (is_array($meta) && isset($meta['textarea'])){
+if ( $meta['checkbox'] === 'checkbox') { ?>
+Checkbox is checked.
+<?php } else { ?> 
+Checkbox is not checked. 
+<?php } } ?>
+
+
+<h1>Select Menu</h1>
+<p>The actual value selected.</p>
+<?php if (is_array($meta) && isset($meta['select'])){ echo $meta['select']; } ?>
+
+<p>Switch statement for options.</p>
+<?php 
+	if (is_array($meta) && isset($meta['select'])){
+	switch ( $meta['select'] ) {
+		case 'option-one':
+			echo 'Option One';
+			break;
+		case 'option-two':
+			echo 'Option Two';
+			break;
+		default:
+			echo 'No option selected';
+			break;
+	} 
+}
 ?>
+
+<h1>Image</h1>
+<img src="<?php if (is_array($meta) && isset($meta['image'])){ echo $meta['image']; } ?>">
+
+
+<?php endwhile; endif; wp_reset_postdata(); ?>
+
+<?php get_footer(); ?>
