@@ -1,5 +1,5 @@
 # wordpress-custom
-** Developing a WordPress Theme from Scratch **
+**Developing a WordPress Theme from Scratch**
 
 This repository contains the code of Tania Rascia tutorial: 
 > Developing a WordPress Theme from Scratch.
